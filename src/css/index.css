@@ -1,23 +1,33 @@
 body {
+    font-family: 'Ubuntu', bold;
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 header {
-    background-color: #333; /* Puedes cambiar el color de fondo según tu diseño */
-    color: #fff; /* Color del texto */
-    padding: 15px 0;
+    background-color: #001E89;
+    color: #FFFFFF;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo img {
-    width: 50px; /* Ajusta el tamaño del logo según tus necesidades */
+    max-height: 50px;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: flex;
 }
 
@@ -27,17 +37,66 @@ nav ul li {
 
 nav a {
     text-decoration: none;
-    color: #fff;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
 }
 
-.contacto a {
-    background-color: #fff; /* Color de fondo del botón */
-    color: #333; /* Color del texto del botón */
-    padding: 10px 20px;
-    border-radius: 5px;
+nav a:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #FFFFFF;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover:after {
+    width: 100%;
+}
+
+nav .element-Menu-li-Contact a {
     text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    border: 1px solid #FFFFFF;
+    padding: 8px 15px;
 }
 
-.contacto a:hover {
-    background-color: #ddd; /* Cambia el color de fondo al pasar el mouse */
+nav .element-Menu-li-Contact a:hover {
+    background-color: #FFFFFF;
+    color: #001E89;
+}
+
+/* Media queries for responsiveness */
+
+@media only screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #001E89;
+        display: none;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0;
+        margin-bottom: 10px;
+    }
 }
