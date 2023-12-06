@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background-color: #333; /* Puedes cambiar el color de fondo según tu diseño */
+    color: #fff; /* Color del texto */
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px; /* Ajusta el tamaño del logo según tus necesidades */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.contacto a {
+    background-color: #fff; /* Color de fondo del botón */
+    color: #333; /* Color del texto del botón */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.contacto a:hover {
+    background-color: #ddd; /* Cambia el color de fondo al pasar el mouse */
+}
