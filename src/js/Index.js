@@ -28,7 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         sendFormDataToPHP(name, email, message);
+        console.log ('json', sendFormDataToPHP);
         alert('Formulario enviado correctamente en js');
+
     }
 
     // Función para enviar los datos del formulario a PHP
@@ -44,13 +46,19 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'POST',
             body: formData
         })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert(data.message);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     }
 
     const form = document.querySelector('form');
