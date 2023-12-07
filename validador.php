@@ -7,9 +7,9 @@ try {
         $email = $_POST['email'];
         $message = $_POST['message'];
 
-        // ... Tu lógica de procesamiento aquí ...
-
-        echo json_encode(['message' => ' del phpDatos del formulario recibidos correctamente. del php']);
+        // ... lógica  ...
+        
+        echo json_encode(['message' => ' del phpDatos del formulario recibidos correctamente.']);
     } else {
         http_response_code(405);
         echo json_encode(['error' => 'Sólo se permiten peticiones POST']);
