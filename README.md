@@ -5,3 +5,5 @@
 - Un PHP que responda al JS con la validación de los campos.
 
 El fondo va en degradado, la idea es que se mantenga asi, y todo con HTML y CSS. Los materiales van adjuntos.
+
+En la ejecución del php, utilice xampp
