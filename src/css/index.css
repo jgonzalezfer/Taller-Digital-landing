@@ -1,9 +1,10 @@
 body {
-    font-family: 'Ubuntu', bold;
+    font-family: 'Ubuntu', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+/* Header Menu*/
 
 header {
     background-color: #001E89;
@@ -12,6 +13,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 2px solid #FFFFFF;
 }
 
 .logo img {
@@ -29,6 +31,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    text-transform: uppercase;
 }
 
 nav ul li {
@@ -41,6 +44,9 @@ nav a {
     font-size: 16px;
     font-weight: bold;
     position: relative;
+    border: 1px solid transparent;
+    padding: 8px 15px;
+    transition: border-color 0.3s ease;
 }
 
 nav a:after {
@@ -57,30 +63,82 @@ nav a:after {
 
 nav a:hover:after {
     width: 100%;
+    border-color: #FFFFFF;
+
 }
 
 nav .element-Menu-li-Contact a {
+    border-radius: 50px;
     text-decoration: none;
     color: #FFFFFF;
     font-size: 16px;
     font-weight: bold;
     position: relative;
     border: 1px solid #FFFFFF;
-    padding: 8px 15px;
+    padding: 10px 20px;
+    background: #334ba1;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Add transitions */
+}
+nav .element-Menu-li-Contact a:after {
+    display: none;
 }
 
 nav .element-Menu-li-Contact a:hover {
     background-color: #FFFFFF;
     color: #001E89;
+    border-color: #001E89;
 }
 
-/* Media queries for responsiveness */
+nav .submenu {
+    display: none;
+    position: absolute;
+    background-color: #001E89;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+nav .submenu li {
+    width: 100%;
+    text-align: left;
+}
 
+nav .dropdown:hover .submenu {
+    display: flex;
+    flex-direction: column;
+}
+nav .dropdown {
+    position: relative;
+}
+
+nav .dropdown>a:after {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+nav .submenu li {
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+nav .submenu a {
+    display: block;
+    padding: 8px 15px;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-bottom: 1px solid #FFFFFF;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+nav .submenu a:hover {
+    background-color: #001E89;
+    color: #FFFFFF;
+    border-color: #FFFFFF; 
+}
+/* Header Menu Fin */
+
+
+/* Media responsiveness */
 @media only screen and (max-width: 768px) {
     .menu-toggle {
         display: block;
     }
-
     nav ul {
         flex-direction: column;
         position: absolute;
@@ -90,13 +148,34 @@ nav .element-Menu-li-Contact a:hover {
         background-color: #001E89;
         display: none;
     }
-
     nav ul.show {
         display: flex;
+        padding: 10px 0;
+        margin-top: 10px;
+        padding-left: 10px;
     }
-
     nav ul li {
         margin: 0;
+        margin-top: 10px;
         margin-bottom: 10px;
     }
+    nav .submenu {
+        position: static; 
+        box-shadow: none; 
+        background-color: #001E89;
+        width: 100%; 
+    }
+    nav .submenu li {
+        width: 100%;
+        text-align: center; 
+    }
+
+    nav .submenu a {
+        border-bottom: 1px solid #334ba1;
+    }
+    nav .dropdown:hover .submenu {
+        display: block; 
+        position: static; 
+    }
+    
 }
