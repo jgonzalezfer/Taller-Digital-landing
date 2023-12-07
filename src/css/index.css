@@ -5,15 +5,18 @@ body {
     box-sizing: border-box;
 }
 /* Header Menu*/
-
 header {
-    background-color: #001E89;
-    color: #FFFFFF;
-    padding: 15px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    border-bottom: 2px solid #FFFFFF;
+    justify-content: space-between;
+    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.containerHeader {
+    background-color: #001E89;
+    padding: 10px;
 }
 
 .logo img {
@@ -136,13 +139,17 @@ nav .submenu a:hover {
 
 /* Media responsiveness */
 @media only screen and (max-width: 768px) {
+    .containerHeader {
+        padding: 5px 10px 10px 10px;
+    }
     .menu-toggle {
         display: block;
+        color: #FFFFFF;
     }
     nav ul {
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 55px;
         left: 0;
         width: 100%;
         background-color: #001E89;
@@ -151,7 +158,6 @@ nav .submenu a:hover {
     nav ul.show {
         display: flex;
         padding: 10px 0;
-        margin-top: 10px;
         padding-left: 10px;
     }
     nav ul li {
