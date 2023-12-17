@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/css/Index.css">
+    <link rel="stylesheet" href="../../src/css/Index.css">
     <title>Landing Page - Taller Digital Page</title>
     <meta name="description" content="Landing Page - Taller Digital Page">
-    <link rel="icon" type="image/x-icon" href="assets/img/logo/logo-generic-icon.png">
+    <link rel="icon" type="image/x-icon" href="../../assets/img/logo/logo-generic-icon.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
 </head>
 
 <body>
     <div class="containerHeader">
-        <header>
+    <header>
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/img/logo/logo-generic-optimizado.png" alt="Logo de la empresa">
+                    <img src="../../assets/img/logo/logo-generic-optimizado.png" alt="Logo de la empresa">
                 </a>
             </div>
             <div class="menu-toggle">&#9776;</div>
@@ -35,21 +36,47 @@
                             <li><a href="#propiedad2">Propiedad 2</a></li>
                         </ul>
                     </li>
-                    <li class="element-Menu-li-Contact"><a href="#contactForm">Contáctanos</a></li>
+                    <li class="element-Menu-li-Contact"><a href="#contacto">Contáctanos</a></li>
                 </ul>
             </nav>
         </header>
     </div>
-    <section id="acerca" class="seccion2">
+    <section class="seccion2">
         <div class="contenido">
             <div class="texto">
-                <h2>Lorem Ipsum</h2>
-                <h1>Lorem ipsum dolor sit amet</h1>
-                <p class="text-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean consequat eleifend urna. Duis blandit
-                    sed ex at convallis. Maecenas non euismod libero, at interdum erat. Duis eu sem facilisis, mollis
-                    turpis suscipit, sagittis risus. Aliquam feugiat purus diam, pretium fermentum lectus blandit in.
-                </p>
-                <section class="contacto" id="servicio2">
+                <?php
+                // Include the database connection file
+                include("../../src/db/dbmysql.php");
+
+                // Loop through each user ID
+                for ($id = 1; $id <= 2; $id++) {
+                    // Your SQL query to select a specific user by ID
+                    $usuario = "SELECT * FROM `use` WHERE id = $id";
+
+                    // Execute the query
+                    $resultado = mysqli_query($cone, $usuario);
+
+                    // Check if the query was successful
+                    if ($resultado) {
+                        // Display the results within the specified sections
+                        while ($row = mysqli_fetch_assoc($resultado)) {
+                            echo '<h2>' . $row['name'] . '</h2>
+                                  <h1>' . $row['des'] . '</h1>
+                                  <p>' . $row['fono'] . '</p>';
+                        }
+
+                        // Free the result set
+                        mysqli_free_result($resultado);
+                    } else {
+                        // Display an error message if the query fails
+                        echo "Error: " . mysqli_error($cone);   
+                    }
+                }
+
+                // Close the database connection
+                mysqli_close($cone);
+                ?>
+                <section class="contacto">
                     <div class="contacto-item">
                         <div class="icono-persona">
                             <svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" height="16" width="14"
@@ -76,7 +103,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="contacto"  id="servicio1">
+                <section class="contacto">
                     <div class="contacto-item">
                         <div class="icono-persona-segundo">
                             <svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" height="16" width="14"
@@ -106,14 +133,14 @@
             </div>
         </div>
         <div class="imagen">
-            <img src="assets/img/diseños/Grupo img primera sección.png" alt="Descripción de la imagen">
+            <img src="../../assets/img/diseños/Grupo img primera sección.png" alt="Descripción de la imagen">
         </div>
     </section>
     <div class="containerseccion3">
         <section class="seccion3">
             <div class="seccion3-fomrularios">
                 <div class="imagen">
-                    <img src="assets/img/diseños/Grupo img segunda sección.png" alt="Descripción de la imagen">
+                    <img src="../../assets/img/diseños/Grupo img segunda sección.png" alt="Descripción de la imagen">
                 </div>
                 <div class="formulario">
                     <h2>contacto</h2>
@@ -138,4 +165,8 @@
     <script src="src/js/Index.js"></script>
 </body>
 
+
+
 </html>
+
+
