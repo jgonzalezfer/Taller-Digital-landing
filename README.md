@@ -9,3 +9,6 @@ El fondo va en degradado, la idea es que se mantenga asi, y todo con HTML y CSS.
 En la ejecución del php, utilice xampp
 
 https://raw.githubusercontent.com/jgonzalezfer/Taller-Digital-landing/main/assets/img/diseños/GRÁFICA.jpg
+
+
+
